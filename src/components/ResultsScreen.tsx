@@ -8,6 +8,12 @@ interface ResultsScreenProps {
 }
 
 export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProps) {
+  const handleShare = () => {
+    const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋 Find your match: boba-matchmaker.vercel.app`;
+    const smsUrl = `sms:?&body=${encodeURIComponent(message)}`;
+    window.open(smsUrl, '_self');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -42,21 +48,27 @@ export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProp
 
         <div className="w-full flex flex-col gap-3">
           <button
-            onClick={onViewMenu}
+            onClick={handleShare}
             className="w-full py-4 px-6 bg-stone-800 hover:bg-stone-700 text-white font-bold text-base rounded-2xl shadow-lg shadow-stone-300 transition-all cursor-pointer"
+          >
+            Share with Friends
+          </button>
+          <button
+            onClick={onViewMenu}
+            className="w-full py-3 px-6 bg-transparent hover:bg-white/40 text-stone-600 font-medium text-sm rounded-2xl border border-stone-300 hover:border-stone-400 transition-all cursor-pointer"
           >
             View Drink Menu
           </button>
           <button
             onClick={onRetake}
-            className="w-full py-3 px-6 bg-transparent hover:bg-white/40 text-stone-600 font-medium text-sm rounded-2xl border border-stone-300 hover:border-stone-400 transition-all cursor-pointer"
+            className="w-full py-3 px-6 text-stone-500 hover:text-stone-700 font-medium text-sm transition-all cursor-pointer"
           >
             Unmatch & Retake
           </button>
         </div>
 
         <p className="mt-6 text-stone-400 text-xs">
-          ♥ created by{" "}
+          ♥ vibe coded by{" "}
           <a
             href="https://github.com/brianchenn/boba-matchmaker"
             target="_blank"

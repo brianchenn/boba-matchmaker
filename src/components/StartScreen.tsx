@@ -47,7 +47,7 @@ export function StartScreen({ onStart, onViewMenu }: StartScreenProps) {
       </button>
 
       <p className="mt-6 text-stone-400 text-xs">
-        ♥ created by{" "}
+        ♥ vibe coded by{" "}
         <a
           href="https://github.com/brianchenn/boba-matchmaker"
           target="_blank"

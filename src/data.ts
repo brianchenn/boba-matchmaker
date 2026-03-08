@@ -64,7 +64,7 @@ export const drinks: Drink[] = [
     name: "Mango Passionfruit Peach Green Tea",
     shop: "TPumps",
     diagnosis:
-      "Arrested Development (Circa 2014). You have chosen absolute chaos. You don't want a refined beverage; you want a violently sweet, nostalgic sugar bomb.",
+      "Valencia Filter Energy (Circa 2013). You have chosen absolute chaos. You don't want a refined beverage; you want a violently sweet, nostalgic sugar bomb that pairs perfectly with an oversaturated Instagram post.",
     imagePath: "/images/tpumps_chaos.png",
   },
   {
