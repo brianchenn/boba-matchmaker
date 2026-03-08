@@ -9,16 +9,13 @@ interface ResultsScreenProps {
 
 export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProps) {
   const handleShare = async () => {
-    const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋`;
-    const url = "https://boba-matchmaker.vercel.app";
+    const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋\n\nhttps://boba-matchmaker.vercel.app`;
     
     // Try native share first (works better on mobile)
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Boba Matchmaker",
           text: message,
-          url: url,
         });
         return;
       } catch {
@@ -27,8 +24,7 @@ export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProp
     }
     
     // Fallback to SMS
-    const smsMessage = `${message}\n\n${url}`;
-    window.open(`sms:?&body=${encodeURIComponent(smsMessage)}`, '_self');
+    window.open(`sms:?&body=${encodeURIComponent(message)}`, '_self');
   };
 
   return (
