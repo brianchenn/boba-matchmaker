@@ -45,6 +45,18 @@ export function StartScreen({ onStart, onViewMenu }: StartScreenProps) {
       >
         Find My Match
       </button>
+
+      <p className="mt-6 text-stone-400 text-xs">
+        ♥ created by{" "}
+        <a
+          href="https://github.com/brianchenn/boba-matchmaker"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-stone-600 transition-colors"
+        >
+          brian
+        </a>
+      </p>
     </motion.div>
   );
 }

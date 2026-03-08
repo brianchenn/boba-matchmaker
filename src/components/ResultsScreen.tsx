@@ -54,6 +54,18 @@ export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProp
             Unmatch & Retake
           </button>
         </div>
+
+        <p className="mt-6 text-stone-400 text-xs">
+          ♥ created by{" "}
+          <a
+            href="https://github.com/brianchenn/boba-matchmaker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-stone-600 transition-colors"
+          >
+            brian
+          </a>
+        </p>
       </div>
     </motion.div>
   );

@@ -161,7 +161,7 @@ export const questions: Question[] = [
       {
         emoji: "🧀",
         text: "I fear nothing. Heavy cream and foam.",
-        scores: { snowy: 3, brownsugar: 2 },
+        scores: { brownsugar: 4, snowy: 3 },
       },
       {
         emoji: "🥥",
@@ -213,7 +213,7 @@ export const questions: Question[] = [
       {
         emoji: "📸",
         text: "Camera eats first. Needs beautiful layers.",
-        scores: { matcha: 3, snowy: 2 },
+        scores: { matcha: 3, mango: 2, roasted: 2 },
       },
       {
         emoji: "🌴",
