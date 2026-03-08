@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import type { Drink } from "../data";
 
 interface ResultsScreenProps {
@@ -10,6 +11,9 @@ interface ResultsScreenProps {
 export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProps) {
   const handleShare = async () => {
     const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋\n\nhttps://boba-matchmaker.vercel.app`;
+    
+    // Track share click
+    track("share_clicked", { drink: drink.name });
     
     // Try native share first (works better on mobile)
     if (navigator.share) {
