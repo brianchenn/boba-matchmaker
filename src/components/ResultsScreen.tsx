@@ -44,11 +44,11 @@ export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProp
           IT'S A MATCH!
         </h1>
 
-        <div className="w-64 h-64 md:w-72 md:h-72 mb-6 drop-shadow-2xl">
+        <div className="w-64 h-64 md:w-72 md:h-72 mb-6 rounded-3xl overflow-hidden shadow-2xl shadow-stone-400/50 bg-white">
           <img
             src={drink.imagePath}
             alt={drink.name}
-            className="w-full h-full object-contain rounded-3xl"
+            className="w-full h-full object-cover"
             onError={(e) => {
               e.currentTarget.src = "https://placehold.co/288x288/fef3c7/92400e?text=🧋";
             }}
