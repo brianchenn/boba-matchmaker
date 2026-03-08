@@ -1,25 +1,18 @@
-import { motion } from "framer-motion";
 import type { AnswerOption } from "../data";
 
 interface AnswerCardProps {
   option: AnswerOption;
   onSelect: () => void;
   isSelected: boolean;
-  index: number;
 }
 
 export function AnswerCard({
   option,
   onSelect,
   isSelected,
-  index,
 }: AnswerCardProps) {
   return (
-    <motion.button
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.15 }}
-      whileTap={{ scale: 0.97 }}
+    <button
       onClick={onSelect}
       className={`
         relative w-full p-4 rounded-2xl border-2 text-left
@@ -39,11 +32,7 @@ export function AnswerCard({
         {option.text}
       </span>
       {isSelected && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute top-2 right-2 w-5 h-5 bg-amber-600 rounded-full flex items-center justify-center"
-        >
+        <div className="absolute top-2 right-2 w-5 h-5 bg-amber-600 rounded-full flex items-center justify-center">
           <svg
             className="w-3 h-3 text-white"
             fill="none"
@@ -57,8 +46,8 @@ export function AnswerCard({
               d="M5 13l4 4L19 7"
             />
           </svg>
-        </motion.div>
+        </div>
       )}
-    </motion.button>
+    </button>
   );
 }

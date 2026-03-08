@@ -16,14 +16,12 @@ export function DrinkMenu({ onBack }: DrinkMenuProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
         className="fixed inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-stone-100 overflow-y-auto"
       >
         <div className="w-full max-w-2xl mx-auto p-4 pb-8">
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="flex items-center gap-3 mb-6"
-          >
+          <div className="flex items-center gap-3 mb-6">
             <button
               onClick={onBack}
               className="p-2 hover:bg-white/60 rounded-full transition-colors cursor-pointer"
@@ -43,15 +41,12 @@ export function DrinkMenu({ onBack }: DrinkMenuProps) {
               </svg>
             </button>
             <h1 className="text-2xl font-bold text-stone-800">Drink Menu</h1>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 gap-3">
-            {drinks.map((drink, index) => (
-              <motion.button
+            {drinks.map((drink) => (
+              <button
                 key={drink.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
                 onClick={() => setSelectedDrink(drink)}
                 className="bg-white/70 hover:bg-white rounded-2xl p-3 border border-stone-200 hover:border-amber-300 shadow-sm hover:shadow-md transition-all cursor-pointer text-left"
               >
@@ -69,7 +64,7 @@ export function DrinkMenu({ onBack }: DrinkMenuProps) {
                   {drink.name}
                 </h3>
                 <p className="text-xs text-stone-500">{drink.shop}</p>
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>
