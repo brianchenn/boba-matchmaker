@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import { drinks, questions } from "./data";
 import type { Drink } from "./data";
 import { StartScreen } from "./components/StartScreen";
@@ -128,6 +129,7 @@ function App() {
           )}
         </AnimatePresence>
       </div>
+      <Analytics />
     </div>
   );
 }
