@@ -8,10 +8,27 @@ interface ResultsScreenProps {
 }
 
 export function ResultsScreen({ drink, onRetake, onViewMenu }: ResultsScreenProps) {
-  const handleShare = () => {
-    const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋 Find your match: boba-matchmaker.vercel.app`;
-    const smsUrl = `sms:?&body=${encodeURIComponent(message)}`;
-    window.open(smsUrl, '_self');
+  const handleShare = async () => {
+    const message = `I'm craving a ${drink.name} from ${drink.shop}. What about you? 🧋`;
+    const url = "https://boba-matchmaker.vercel.app";
+    
+    // Try native share first (works better on mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Boba Matchmaker",
+          text: message,
+          url: url,
+        });
+        return;
+      } catch {
+        // User cancelled or share failed, fall through to SMS
+      }
+    }
+    
+    // Fallback to SMS
+    const smsMessage = `${message}\n\n${url}`;
+    window.open(`sms:?&body=${encodeURIComponent(smsMessage)}`, '_self');
   };
 
   return (
